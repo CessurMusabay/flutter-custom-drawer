@@ -7,6 +7,12 @@ a fully customizable slider like drawer
 <img src="ss1.jpg" height="300em"/>
 
 
+
+### How to use
+‘‘‘
+   drag right to open drawer and drag left to close drawer
+   width of draggable area is drawWidth in ModernDrawer widget
+’’’
 ### Example
 ```
 void main() => runApp(
