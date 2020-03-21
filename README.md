@@ -4,11 +4,11 @@ a fully customizable slider like drawer
 
 ##Screenshots
 
-<img src="ss1.png" height="300em"/>
+<img src="ss1.jpg" height="300em"/>
 
 
 ### Example
-'''
+```
 void main() => runApp(
   MaterialApp(
     home: MyApp(),
@@ -106,7 +106,7 @@ class MyApp extends StatelessWidget{
     );
   }
 }
-'''
+```
 
 ## Getting Started
 
