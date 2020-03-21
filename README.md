@@ -10,8 +10,8 @@ a fully customizable slider like drawer
 
 ### How to use
 ‘‘‘
-   drag right to open drawer and drag left to close drawer
-   width of draggable area is drawWidth in ModernDrawer widget
+drag right to open drawer and drag left to close drawer,
+width of draggable area is drawWidth in ModernDrawer widget
 ’’’
 ### Example
 ```
