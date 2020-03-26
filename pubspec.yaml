@@ -1,6 +1,6 @@
 name: flutter_custom_drawer
-description: a fully customizable slider like drawer
-version: 0.0.1
+description: a fully customizable drawer like a slider, this package works on web,ios,android and desktop there is no need for any configuration for any of them. all you need to do is just an use it.
+version: 0.1.0
 author: cessur_musabay
 homepage: https://github.com/CessurMusabay/flutter-custom-drawer
 

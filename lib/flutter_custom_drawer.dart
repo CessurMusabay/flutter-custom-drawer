@@ -6,14 +6,18 @@ import 'package:flutter/material.dart';
 class ModernDrawer extends StatefulWidget{
   Color backgroundColor;
   double drawWidth;
+  double swipableAreaWidth;
   Widget backgroundWidget;
   Widget foregroundWidget;
-  double topAndBottom;
+  double top;
+  double bottom;
   ModernDrawer({
     @required this.drawWidth
     ,@required this.backgroundWidget
     ,@required this.foregroundWidget
-    ,this.topAndBottom
+    ,@required this.swipableAreaWidth
+    ,this.top
+    ,this.bottom
     ,this.backgroundColor});
   createState() => _ModernDrawerState();
 }
@@ -22,6 +26,7 @@ class ModernDrawer extends StatefulWidget{
 class _ModernDrawerState extends State<ModernDrawer>{
   bool opened = false;
   Widget build(BuildContext context){
+    var mQuery  = MediaQuery.of(context);
     return Container(
       color: widget.backgroundColor == null ? Colors.white : widget.backgroundColor,
       child: Stack(
@@ -31,15 +36,14 @@ class _ModernDrawerState extends State<ModernDrawer>{
             duration: Duration(milliseconds: 350),
             child: widget.foregroundWidget,
             right: opened ?  widget.drawWidth : 0,
-            top: opened ? widget.topAndBottom : 0,
-            bottom: opened ? widget.topAndBottom : 0,
+            top: opened ? widget.top : 0,
+            bottom: opened ? widget.bottom : 0,
           ),
           Positioned(
             top: 0,
             right: 0,
             child: GestureDetector(
               onHorizontalDragEnd: (a){
-                print(opened);
                 if(a.primaryVelocity.toDouble() < 0){
                   setState(() {
                     opened = true;
@@ -51,10 +55,27 @@ class _ModernDrawerState extends State<ModernDrawer>{
                   });
                 }
               },
-              child: Container(
-                height: 100000,
-                width: widget.drawWidth,
-                color: Colors.transparent,
+              child: Row(
+                children: <Widget>[
+                  opened ?
+                  GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        opened = false;
+                      });
+                    },
+                    child: Container(
+                      height: mQuery.size.height,
+                      width: mQuery.size.width - widget.swipableAreaWidth,
+                      color: Colors.transparent,
+                    ),
+                  ):SizedBox(width: 0,height: 0,),
+                  Container(
+                    height: mQuery.size.height,
+                    width: widget.swipableAreaWidth,
+                    color: Colors.transparent,
+                  ),
+                ],
               ),
             ),
           ),
