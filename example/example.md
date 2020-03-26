@@ -6,6 +6,8 @@ width of draggable area is drawWidth in ModernDrawer widget
 
 ### Example
 ```
+import 'package:flutter/material.dart';
+
 void main() => runApp(
   MaterialApp(
     home: MyApp(),
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget{
     return Scaffold(
         body: ModernDrawer(
           drawWidth: size.width * 0.5,
-          topAndBottom: size.height * 0.05,
+          top: size.height * 0.05,
+          bottom: size.height * 0.05,
+          swipableAreaWidth: size.width * 0.5,
           backgroundWidget: Container(
             color: Colors.black.withOpacity(0.2),
             alignment: Alignment.centerRight,
